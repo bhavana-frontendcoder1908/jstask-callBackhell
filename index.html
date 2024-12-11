@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBack Hell</title>
+</head>
+<body>
+    <center>
+        <div id="output" style="font-size: xx-large;"></div>
+    </center>
+    <script>
+       function appendMessage(message) {
+       var div = document.createElement("div"); 
+        div.textContent = message; 
+       document.getElementById("output").appendChild(div); 
+    }
+
+
+    function step1(callback){
+        setTimeout(()=>{
+            console.log("Placed The Order")
+            appendMessage("Placed The Order");
+            callback()
+
+        },2000)
+        }
+
+
+        function step2(callback){
+        setTimeout(()=>{
+            console.log("Preparing The Pizza")
+             appendMessage("Preparing The Pizza")
+            callback()
+
+        },3000)
+        }
+
+
+        function step3(callback){
+        setTimeout(()=>{
+            console.log("Baking The Pizza")
+         appendMessage("Baking The Pizza")
+            callback()
+
+        },4000)
+        }
+
+        function step4(callback){
+        setTimeout(()=>{
+            console.log("Packing The Pizza")
+            appendMessage("Packing The Pizza")
+            callback()
+
+        },5000)
+        }
+
+        function step5(callback){
+        setTimeout(()=>{
+            console.log(" Deilver Pizza")
+            appendMessage(" Deilver Pizza")
+            callback()
+
+        },6000)
+        }
+
+
+        // function step1(callback){
+        //     console.log("Place The Order")
+        //     appendMessage("Place The Order");
+        //     callback()
+        // }
+
+        // function step2(callback){
+        //     console.log("Preparing The Pizza")
+        //     appendMessage("Preparing The Pizza")
+        //     callback()
+        // }
+
+        // function step3(callback){
+        //     console.log("Baking The Pizza")
+        //     appendMessage("Baking The Pizza")
+        //     callback()
+        // }
+
+        // function step4(callback){
+        //     console.log("Packing The Pizza")
+        //     appendMessage("Packing The Pizza")
+        //     callback()
+        // }
+
+        // function step5(callback){
+        //     console.log(" Deilver Pizza")
+        //     appendMessage(" Deilver Pizza")
+        //     callback()
+        // }
+
+        step1( ()=>{
+            step2( ()=>{
+                step3( ()=>{
+                    step4( ()=>{
+                        step5()
+                    })
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>
